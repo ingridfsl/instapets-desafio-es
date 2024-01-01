@@ -2,11 +2,11 @@ import "./styles.css";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
 import { NavLink } from "react-router-dom";
-interface LoginProps {
-  loginType: "login" | "signup" | undefined;
+interface SignupProps {
+  signupType: "login" | "signup" | undefined;
 }
 
-function Login({ loginType }: LoginProps) {
+function Signup({ signupType }: SignupProps) {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -32,8 +32,8 @@ function Login({ loginType }: LoginProps) {
 
   return (
     <>
-      <div className="login-container">
-        {loginType === "login" ? <h1>Login</h1> : <h1>Criar conta</h1>}
+      <div className="signup-container">
+        {signupType === "signup" ? <h1>Criar conta</h1> : <h1>Criar conta</h1>}
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -50,17 +50,15 @@ function Login({ loginType }: LoginProps) {
           />
           <input
             type="submit"
-            value={loginType === "login" ? "Entrar" : "Criar conta"}
+            value={signupType === "login" ? "Entrar" : "Criar "}
           />
         </form>
-        {loginType === "login" ? (
-          <NavLink to="/signup">Criar conta</NavLink>
-        ) : (
-          <NavLink to="/login">Já tenho conta</NavLink>
-        )}
+        {signupType === "login" ? (
+          <NavLink to="/signup">Criar </NavLink>
+        ) :  null}
       </div>
     </>
   );
 }
 
-export default Login;
+export default Signup;
