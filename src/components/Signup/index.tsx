@@ -1,7 +1,7 @@
 import "./styles.css";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 interface SignupProps {
   signupType: "login" | "signup" | undefined;
 }
@@ -9,6 +9,7 @@ interface SignupProps {
 function Signup({ signupType }: SignupProps) {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate();
   
 
   const handleChangeLogin = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,6 +30,7 @@ function Signup({ signupType }: SignupProps) {
     console.log("Password:", password);
     setLogin("");
     setPassword("");
+    navigate("/dashboard");
 
   };
 
