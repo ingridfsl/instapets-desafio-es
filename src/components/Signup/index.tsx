@@ -9,6 +9,7 @@ interface SignupProps {
 function Signup({ signupType }: SignupProps) {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  
 
   const handleChangeLogin = (e: ChangeEvent<HTMLInputElement>) => {
     setLogin(e.target.value);
@@ -28,6 +29,7 @@ function Signup({ signupType }: SignupProps) {
     console.log("Password:", password);
     setLogin("");
     setPassword("");
+
   };
 
   return (
@@ -50,7 +52,7 @@ function Signup({ signupType }: SignupProps) {
           />
           <input
             type="submit"
-            value={signupType === "login" ? "Entrar" : "Criar "}
+            value={signupType === "login" ? "Entrar" : "Criar"}
           />
         </form>
         {signupType === "login" ? (
