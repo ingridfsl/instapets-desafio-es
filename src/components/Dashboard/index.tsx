@@ -55,15 +55,13 @@ const Dashboard: React.FC<DashboardProps> = ({ dashboardType }) => {
             Criar novo post +
           </button>
         )}
-      </div>
-
-      {showModal && (
+        {showModal && (
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={closeModal}>
               &times;
             </span>
-            <p >Novo Post</p>
+            <p >Novo post</p>
             <input
               type="text"
               placeholder="Legenda"
@@ -79,19 +77,19 @@ const Dashboard: React.FC<DashboardProps> = ({ dashboardType }) => {
                 style={{ display: "none" }}
               />
             </label>
-            {selectedImage && (
+            <div className="img">
+              {selectedImage && (
               <img
                 src={URL.createObjectURL(selectedImage)}
                 alt="Imagem Selecionada"
                 style={{ maxWidth: "100%", marginTop: "10px" }}
               />
             )}
+            </div>
             <button className="button-post" onClick={handlePost}>Publicar</button>
           </div>
         </div>
       )}
-
-      
         <div className="image-preview">
           {postedImages.map((image, index) => (
             <div className="image-post-container" key={index}>
@@ -105,6 +103,7 @@ const Dashboard: React.FC<DashboardProps> = ({ dashboardType }) => {
             </div>
           ))}
         </div>
+      </div>
     </>
   );
 };
